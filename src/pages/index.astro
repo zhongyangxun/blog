@@ -1,9 +1,15 @@
 ---
-import BaseLayout from '@/layouts/Baselayout.astro';
+import PostList from '@/components/PostList.astro';
+import Baselayout from '@/layouts/Baselayout.astro';
+import { getCollection } from 'astro:content';
 
-const pageTitle = 'Home page';
+const allPosts = await getCollection('blog');
+
+const pageTitle = 'My Astro Learning Blog';
 ---
 
-<BaseLayout>
+<Baselayout>
   <h1>{pageTitle}</h1>
-</BaseLayout>
+  <p>This is where I will post about my journey learning Astro.</p>
+  <PostList posts={allPosts} />
+</Baselayout>
