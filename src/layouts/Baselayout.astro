@@ -1,0 +1,59 @@
+---
+import '../styles/global.css';
+import Navigation from '@/components/Navigation';
+import ModeToggle from '@/components/ModeToggle';
+
+const pageTitle = 'Home Page';
+const pathname = Astro.url.pathname;
+---
+
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
+  };
+  const isDark = getThemePreference() === 'dark';
+  document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+
+  if (typeof localStorage !== 'undefined') {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+  }
+</script>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header>
+      <div
+        class="max-w-xl mx-auto flex justify-between items-center mt-8 mb-16"
+      >
+        <Navigation pathname={pathname} client:load />
+        <ModeToggle client:load />
+      </div>
+    </header>
+    <main>
+      <article
+        class="prose prose-neutral dark:prose-invert prose-lg max-w-xl mx-auto"
+      >
+        <slot />
+      </article>
+    </main>
+  </body>
+</html>
