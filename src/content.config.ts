@@ -7,6 +7,7 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string(),
     pubDate: z.date(),
+    update: z.date().optional(),
     description: z.string(),
     author: z.string(),
     image: z.object({
@@ -15,6 +16,8 @@ const blog = defineCollection({
     }),
     category: z.enum(['技术实践', '读书笔记', '碎片随笔', '工具推荐']),
     tags: z.array(z.string()),
+    series: z.string().optional(),
+    seriesIndex: z.number().optional(),
   }),
 });
 
