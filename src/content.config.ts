@@ -10,10 +10,6 @@ const blog = defineCollection({
     update: z.date().optional(),
     description: z.string(),
     author: z.string(),
-    image: z.object({
-      url: z.string(),
-      alt: z.string(),
-    }),
     category: z.enum(['技术实践', '读书笔记', '碎片随笔', '工具推荐']),
     tags: z.array(z.string()),
     series: z.string().optional(),

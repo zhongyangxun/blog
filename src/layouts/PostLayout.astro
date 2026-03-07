@@ -1,14 +1,7 @@
 ---
 import Baselayout from './Baselayout.astro';
-
-const { post } = Astro.props;
 ---
 
 <Baselayout>
-  <img
-    src={post.data.image.url}
-    alt={post.data.image.alt}
-    class="w-full h-auto"
-  />
   <slot />
 </Baselayout>
