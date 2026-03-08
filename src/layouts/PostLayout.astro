@@ -31,14 +31,28 @@ const formatDate = (date: Date) => {
     }
     <slot />
   </article>
-  <div class="mt-20 space-y-8">
+  <div class="mt-20 border-t border-dashed pt-6 space-y-6">
     <div
-      class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-muted-foreground/70 border-t border-dashed pt-6"
+      class="flex items-center gap-2 text-xs font-mono text-muted-foreground/60 tracking-wider"
     >
-      <div class="flex items-center gap-2">
-        <span class="h-1.5 w-1.5 rounded-full bg-emerald-500/50"></span>
-        LAST REVISION: {formatDate(update || pubDate)}
-      </div>
+      <span class="h-1.5 w-1.5 rounded-full bg-emerald-500/50"></span>
+      最后修订: {formatDate(update || pubDate)}
+    </div>
+    <div class="text-[13px] text-muted-foreground/60 leading-relaxed font-sans">
+      <p class="flex flex-wrap items-center gap-x-2 gap-y-1">
+        <span class="font-medium text-foreground/70">内容许可：</span>
+        <a
+          href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans"
+          rel="license noopener noreferrer"
+          target="_blank"
+          class="underline underline-offset-4 decoration-border hover:text-primary hover:decoration-primary transition-colors"
+        >
+          署名 - 非商业性使用 - 禁止演绎 (CC BY-NC-ND 4.0)
+        </a>
+      </p>
+      <p class="mt-1 text-[12px] opacity-80">
+        在完整保留署名及出处的前提下，欢迎自由转载。
+      </p>
     </div>
   </div>
 </Baselayout>
