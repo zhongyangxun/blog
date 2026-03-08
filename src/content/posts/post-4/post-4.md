@@ -8,3 +8,7 @@ category: '技术实践'
 ---
 
 This post should show up with my other blog posts, because `import.meta.glob()` is returning a list of all my posts in order to create my list.
+
+This is a image
+
+![image](./stewie.jpg)
