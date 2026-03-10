@@ -1,3 +1,4 @@
+import type { CollectionEntry } from 'astro:content';
 import { z } from 'zod';
 
 export const POST_CATEGORIES = [
@@ -19,4 +20,6 @@ export const postSchema = z.object({
   seriesIndex: z.number().optional(),
 });
 
-export type Post = z.infer<typeof postSchema>;
+export type PostFrontmatter = z.infer<typeof postSchema>;
+
+export type Post = CollectionEntry<'posts'>;

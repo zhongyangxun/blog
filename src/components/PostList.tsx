@@ -1,0 +1,24 @@
+import type { Post } from '@/schemas/post';
+import PostItem from './PostItem';
+
+type PostListProps = {
+  posts: Post[];
+};
+
+const PostList = ({ posts }: PostListProps) => {
+  return (
+    <ul className="mt-20">
+      {posts.map((post: Post) => {
+        const { id, data } = post;
+        const { title, update, pubDate } = data;
+        return (
+          <li key={id}>
+            <PostItem id={id} title={title} update={update} pubDate={pubDate} />
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
+export default PostList;
