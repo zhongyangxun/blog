@@ -1,0 +1,22 @@
+import { z } from 'zod';
+
+export const POST_CATEGORIES = [
+  '技术实践',
+  '读书笔记',
+  '碎片随笔',
+  '工具推荐',
+] as const;
+
+export const postSchema = z.object({
+  title: z.string(),
+  pubDate: z.date(),
+  update: z.date().optional(),
+  description: z.string(),
+  author: z.string(),
+  category: z.enum(POST_CATEGORIES),
+  tags: z.array(z.string()),
+  series: z.string().optional(),
+  seriesIndex: z.number().optional(),
+});
+
+export type Post = z.infer<typeof postSchema>;

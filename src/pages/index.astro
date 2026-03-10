@@ -3,7 +3,7 @@ import PostList from '@/components/PostList.astro';
 import Baselayout from '@/layouts/Baselayout.astro';
 import { getCollection } from 'astro:content';
 
-const allPosts = await getCollection('blog');
+const allPosts = await getCollection('posts');
 
 const pageTitle = 'My Astro Learning Blog';
 ---

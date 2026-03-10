@@ -1,22 +1,12 @@
 import { glob } from 'astro/loaders';
 import { defineCollection } from 'astro:content';
-import { z } from 'zod';
+import { postSchema } from './schemas/post';
 
-const blog = defineCollection({
+const posts = defineCollection({
   loader: glob({ pattern: '**/[^_]*.md', base: './src/content/posts' }),
-  schema: z.object({
-    title: z.string(),
-    pubDate: z.date(),
-    update: z.date().optional(),
-    description: z.string(),
-    author: z.string(),
-    category: z.enum(['技术实践', '读书笔记', '碎片随笔', '工具推荐']),
-    tags: z.array(z.string()),
-    series: z.string().optional(),
-    seriesIndex: z.number().optional(),
-  }),
+  schema: postSchema,
 });
 
 export const collections = {
-  blog,
+  posts,
 };
