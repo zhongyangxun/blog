@@ -12,7 +12,7 @@ export const postSchema = z.object({
   title: z.string(),
   pubDate: z.date(),
   update: z.date().optional(),
-  description: z.string(),
+  description: z.string().default(''),
   author: z.string(),
   category: z.enum(POST_CATEGORIES),
   tags: z.array(z.string()),
