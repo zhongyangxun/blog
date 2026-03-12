@@ -1,0 +1,23 @@
+---
+import { formatDate } from '@/lib/utils';
+import type { PostFrontmatter } from '@/schemas/post';
+
+type Props = Pick<PostFrontmatter, 'title' | 'pubDate' | 'description'>;
+
+const { title, pubDate, description } = Astro.props;
+---
+
+<header>
+  <h1>{title}</h1>
+  <time
+    class="text-xs sm:text-sm text-muted-foreground/70"
+    datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time
+  >
+  {
+    description && (
+      <p class=" text-neutral-500 border-l-2 border-primary/20 pl-4 py-1">
+        {description}
+      </p>
+    )
+  }
+</header>

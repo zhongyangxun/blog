@@ -1,10 +1,10 @@
 ---
 import { formatDate } from '@/lib/utils';
 import BaseLayout from './BaseLayout.astro';
+import PostMeta from '@/components/PostMeta.astro';
 
 const { post } = Astro.props;
 const { title, pubDate, description, update } = post.data;
-
 ---
 
 <BaseLayout>
@@ -21,18 +21,7 @@ const { title, pubDate, description, update } = post.data;
     /* 列表 */
     prose-li:my-1"
   >
-    <h1>{title}</h1>
-    <time
-      class="text-xs sm:text-sm text-muted-foreground/70"
-      datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time
-    >
-    {
-      description && (
-        <p class=" text-neutral-500 border-l-2 border-primary/20 pl-4 py-1">
-          {description}
-        </p>
-      )
-    }
+    <PostMeta title={title} pubDate={pubDate} description={description} />
     <slot />
   </article>
   <div class="mt-20 border-t border-dashed pt-6 space-y-6">
