@@ -1,13 +1,13 @@
 ---
 import { formatDate } from '@/lib/utils';
-import Baselayout from './Baselayout.astro';
+import BaseLayout from './BaseLayout.astro';
 
 const { post } = Astro.props;
 const { title, pubDate, description, update } = post.data;
 
 ---
 
-<Baselayout>
+<BaseLayout>
   <article
     class="prose prose-neutral dark:prose-invert leading-relaxed tracking-tight
     /* 标题字号 */
@@ -59,4 +59,4 @@ const { title, pubDate, description, update } = post.data;
       </p>
     </div>
   </div>
-</Baselayout>
+</BaseLayout>
