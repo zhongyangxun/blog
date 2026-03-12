@@ -10,10 +10,16 @@ const PostList = ({ posts }: PostListProps) => {
     <ul className="mt-20">
       {posts.map((post: Post) => {
         const { id, data } = post;
-        const { title, update, pubDate } = data;
+        const { title, update, pubDate, description } = data;
         return (
           <li key={id}>
-            <PostItem id={id} title={title} update={update} pubDate={pubDate} />
+            <PostItem
+              id={id}
+              title={title}
+              update={update}
+              pubDate={pubDate}
+              description={description}
+            />
           </li>
         );
       })}
