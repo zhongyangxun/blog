@@ -5,6 +5,8 @@ import {
   NavigationMenuLink,
 } from './ui/navigation-menu';
 
+const { BASE_URL } = import.meta.env;
+
 type NavigationProps = {
   pathname: string;
 };
@@ -12,11 +14,11 @@ type NavigationProps = {
 const Navigation = ({ pathname }: NavigationProps) => {
   const links = [
     {
-      href: '/',
+      href: BASE_URL,
       label: 'Home',
     },
     {
-      href: '/about',
+      href: `${BASE_URL}about`,
       label: 'About',
     },
   ];

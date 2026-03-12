@@ -9,7 +9,7 @@ const PostItem = ({ id, title, pubDate, description }: PostItemProps) => {
     <div className="flex-col mb-4">
       <div>
         <a
-          href={`/posts/${id}`}
+          href={`${import.meta.env.BASE_URL}posts/${id}`}
           className="font-semibold text-sm hover:underline line-clamp-2"
         >
           {title}

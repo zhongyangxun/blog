@@ -8,7 +8,8 @@ import react from '@astrojs/react';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://zhongyangxun.github.io',
-  base: '/',
+  // can access this value via `import.meta.env.BASE_URL`
+  base: '/blog/',
 
   vite: {
     plugins: [tailwindcss()],
