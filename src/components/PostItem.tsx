@@ -10,7 +10,7 @@ const PostItem = ({ id, title, pubDate, description }: PostItemProps) => {
       <div>
         <a
           href={`/posts/${id}`}
-          className="font-semibold text-sm hover:underline"
+          className="font-semibold text-sm hover:underline line-clamp-2"
         >
           {title}
         </a>
