@@ -7,7 +7,7 @@ type PostListProps = {
 
 const PostList = ({ posts }: PostListProps) => {
   return (
-    <ul className="mt-20">
+    <ul>
       {posts.map((post: Post) => {
         const { id, data } = post;
         const { title, update, pubDate, description } = data;

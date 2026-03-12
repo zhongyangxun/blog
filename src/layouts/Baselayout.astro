@@ -40,10 +40,8 @@ const pathname = Astro.url.pathname;
     <title>{pageTitle}</title>
   </head>
   <body class="pb-32 px-4">
-    <header>
-      <div
-        class="max-w-xl mx-auto flex justify-between items-center mt-8 mb-16"
-      >
+    <header class="pt-8 pb-8 sm:pb-16">
+      <div class="max-w-xl mx-auto flex justify-between items-center">
         <Navigation pathname={pathname} client:load />
         <ModeToggle client:load />
       </div>
