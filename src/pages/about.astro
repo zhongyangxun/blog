@@ -1,24 +1,13 @@
 ---
 import BaseLayout from '@/layouts/Baselayout.astro';
+import { render } from 'astro:content';
+import { getCollection } from 'astro:content';
 
-const pageTitle = 'About Me';
+const [about] = await getCollection('about');
+const { Content } = await render(about);
 
-const identity = {
-  firstName: 'Joey',
-};
-
-const skills = ['HTML', 'CSS', 'JavaScript'];
 ---
 
 <BaseLayout>
-  <h1>{pageTitle}</h1>
-
-  <p>Here are a few facts about me:</p>
-  <ul>
-    <li>My name is {identity.firstName}.</li>
-  </ul>
-  <p>My skills are:</p>
-  <ul>
-    {skills.map((skill) => <li>{skill}</li>)}
-  </ul>
+ <Content/>
 </BaseLayout>
