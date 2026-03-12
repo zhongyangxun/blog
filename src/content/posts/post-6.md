@@ -5,6 +5,7 @@ description: '我如何用 Astro 5、shadcn/ui、Tailwind Typography 和少量 R
 tags: ['astro', 'tailwind', 'react', 'web-development', 'minimalism']
 author: 'Joey'
 category: '技术实践'
+draft: true
 ---
 
 在这个每个网站都拼命用无限滚动、英雄视频和渐变动画抢眼球的时代，我反其道而行之。

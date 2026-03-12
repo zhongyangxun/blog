@@ -8,14 +8,21 @@ type PostListProps = {
 const PostList = ({ posts }: PostListProps) => {
   return (
     <ul>
-      {posts.map((post: Post) => {
+      {posts.map((post: Post, index) => {
         const { id, data } = post;
-        const { title, update, pubDate, description } = data;
+        const { title, update, pubDate, description, draft } = data;
+
+        if (import.meta.env.PROD && draft) {
+          return null;
+        }
+
+        const titlePrefix = draft ? '[DRAFT] ' : '';
+
         return (
           <li key={id}>
             <PostItem
               id={id}
-              title={title}
+              title={`${titlePrefix} ${title}`}
               update={update}
               pubDate={pubDate}
               description={description}

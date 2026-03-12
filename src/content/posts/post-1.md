@@ -5,6 +5,7 @@ update: 2026-03-08
 author: 'Astro Learner'
 tags: ['astro', 'blogging', 'learning in public']
 category: '技术实践'
+draft: true
 ---
 
 Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.

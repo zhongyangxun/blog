@@ -18,6 +18,7 @@ export const postSchema = z.object({
   tags: z.array(z.string()),
   series: z.string().optional(),
   seriesIndex: z.number().optional(),
+  draft: z.boolean().default(false),
 });
 
 export type PostFrontmatter = z.infer<typeof postSchema>;

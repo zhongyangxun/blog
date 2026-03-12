@@ -5,6 +5,7 @@ description: 'How I rebuilt my personal site using Astro 5, shadcn/ui, Tailwind 
 tags: ['astro', 'tailwind', 'react', 'web-development', 'minimalism']
 author: 'Joey'
 category: '技术实践'
+draft: true
 ---
 
 In an era where every website screams for attention with infinite scroll, hero videos, and animated gradients, I made the deliberate choice to go the opposite direction. My new blog is deliberately narrow — capped at `max-w-xl` — and built entirely on **Astro 5**, **shadcn/ui**, **Tailwind CSS** with the official Typography plugin, and just enough **React** for interactive islands. The result? A lightning-fast, distraction-free reading experience that feels like opening a beautifully typeset book rather than another noisy feed.
