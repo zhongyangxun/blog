@@ -1,6 +1,6 @@
 ---
 title: 关于
-description: 关于我的页面
+description: Joey 的个人博客，记录技术与一些生活思考
 update: 2026-03-12
 ---
 
