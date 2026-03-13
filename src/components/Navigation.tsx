@@ -18,7 +18,7 @@ const Navigation = ({ pathname }: NavigationProps) => {
       label: 'Home',
     },
     {
-      href: `${BASE_URL}about`,
+      href: `${BASE_URL}about/`,
       label: 'About',
     },
   ];
