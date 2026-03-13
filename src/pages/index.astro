@@ -6,6 +6,6 @@ import { getCollection } from 'astro:content';
 const allPosts = await getCollection('posts');
 ---
 
-<BaseLayout>
+<BaseLayout pageTitle="Home">
   <PostList posts={allPosts} />
 </BaseLayout>

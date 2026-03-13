@@ -8,7 +8,7 @@ const { post } = Astro.props;
 const { title, pubDate, description, update } = post.data;
 ---
 
-<BaseLayout>
+<BaseLayout pageTitle={title}>
   <Prose>
     <PostMeta title={title} pubDate={pubDate} description={description} />
     <slot />

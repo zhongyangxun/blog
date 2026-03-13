@@ -3,7 +3,14 @@ import '../styles/global.css';
 import Navigation from '@/components/Navigation';
 import ModeToggle from '@/components/ModeToggle';
 
-const pageTitle = 'Home Page';
+type Props = {
+  pageTitle: string;
+};
+
+const { pageTitle } = Astro.props;
+const siteTitle = "Joey's Blog";
+const fullTitle = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle;
+
 const pathname = Astro.url.pathname;
 ---
 
@@ -41,7 +48,7 @@ const pathname = Astro.url.pathname;
     />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
+    <title>{fullTitle}</title>
   </head>
   <body class="pb-32 px-4">
     <header class="pt-8 pb-8 sm:pb-16">
