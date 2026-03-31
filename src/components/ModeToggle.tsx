@@ -9,7 +9,6 @@ const ModeToggle = () => {
 
   useEffect(() => {
     const isDark = document.documentElement.classList.contains('dark');
-    console.log('isDark', isDark);
     setTheme(isDark ? 'dark' : 'light');
   }, []);
 
