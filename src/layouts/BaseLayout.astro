@@ -24,7 +24,6 @@ const pathname = Astro.url.pathname;
       : 'light';
   };
   const isDark = getThemePreference() === 'dark';
-  document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
 
   if (typeof localStorage !== 'undefined') {
     const observer = new MutationObserver(() => {
@@ -36,6 +35,8 @@ const pathname = Astro.url.pathname;
       attributeFilter: ['class'],
     });
   }
+
+  document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
 </script>
 
 <html lang="en">
