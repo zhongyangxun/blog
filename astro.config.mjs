@@ -7,6 +7,8 @@ import react from '@astrojs/react';
 
 import expressiveCode from 'astro-expressive-code';
 
+import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://zhongyangxun.github.io',
@@ -21,6 +23,10 @@ export default defineConfig({
     react(),
     expressiveCode({
       themes: ['catppuccin-macchiato'],
+      plugins: [pluginLineNumbers()],
+      defaultProps: {
+        showLineNumbers: false,
+      },
     }),
   ],
 });
