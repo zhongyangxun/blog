@@ -3,7 +3,9 @@ import PostList from '@/components/PostList';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const allPosts = await getCollection('posts');
+const allPosts = (await getCollection('posts')).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+);
 ---
 
 <BaseLayout pageTitle="Home">
