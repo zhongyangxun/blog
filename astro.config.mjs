@@ -11,9 +11,9 @@ import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://zhongyangxun.github.io',
+  site: 'https://blog.joeyzcode.com',
   // can access this value via `import.meta.env.BASE_URL`
-  base: '/blog/',
+  base: '/',
 
   vite: {
     plugins: [tailwindcss()],
