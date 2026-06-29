@@ -1,5 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
-import { z } from 'zod';
+import { z } from 'astro/zod';
 
 export const POST_CATEGORIES = [
   '技术实践',
