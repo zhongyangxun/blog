@@ -57,6 +57,6 @@ puzzledict 也有夜间模式，能根据网页主题自动适配。
 
 - **安装**：[Chrome 商店](https://chromewebstore.google.com/detail/fjnbhpmpglmpaaehjpjajflmhnifjjoi?utm_source=item-share-cb) · [GitHub 安装包](https://github.com/zhongyangxun/puzzledict/releases) · [备用下载地址](https://download.joeyzcode.com/puzzledict-1.0.0.zip)
 - **项目**：[GitHub 仓库](https://github.com/zhongyangxun/puzzledict) · [隐私政策](https://zhongyangxun.github.io/puzzledict/privacy.html)
-- **反馈**：提交 Issue · joeyzcode.dev@gmail.com
+- **反馈**：[提交 Issue](https://github.com/zhongyangxun/puzzledict/issues) · joeyzcode.dev@gmail.com
 
 **手动安装（离线包）**：解压后，浏览器地址栏打开 `chrome://extensions/`，开启开发者模式，点击”加载已解压的扩展程序“，选择解压文件夹。
