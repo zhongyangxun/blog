@@ -5,6 +5,7 @@ description: 'I need A Plan B.'
 pubDate: 2026-07-06
 tags: ['随笔']
 category: '碎片随笔'
+draft: true
 ---
 
 划词翻译 [puzzledict](https://chromewebstore.google.com/detail/fjnbhpmpglmpaaehjpjajflmhnifjjoi?utm_source=item-share-cb) 开发好了。宣传文章发了一天，没人看，用户只有我自己。我已严重破防，妈的。精神受到了一些伤害。这是我这么可爱的人应该承受的吗？
