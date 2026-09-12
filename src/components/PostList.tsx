@@ -5,12 +5,24 @@ type PostListProps = {
   posts: Post[];
 };
 
+const orderByPin = (posts: Post[]) => {
+  return [...posts].sort((a, b) => {
+    const aPin = a.data.pin;
+    const bPin = b.data.pin;
+    if (aPin && !bPin) return -1;
+    if (!aPin && bPin) return 1;
+    if (aPin && bPin) return aPin - bPin;
+
+    return 0;
+  });
+};
+
 const PostList = ({ posts }: PostListProps) => {
   return (
     <ul>
-      {posts.map((post: Post, index) => {
+      {orderByPin(posts).map((post: Post) => {
         const { id, data } = post;
-        const { title, update, pubDate, description, draft } = data;
+        const { title, update, pubDate, description, draft, pin } = data;
 
         if (import.meta.env.PROD && draft) {
           return null;
@@ -26,6 +38,7 @@ const PostList = ({ posts }: PostListProps) => {
               update={update}
               pubDate={pubDate}
               description={description}
+              pin={pin}
             />
           </li>
         );
