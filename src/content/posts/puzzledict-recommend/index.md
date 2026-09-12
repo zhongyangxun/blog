@@ -5,6 +5,7 @@ description: ''
 pubDate: 2026-07-05
 tags: ['浏览器插件', '英语', '词根']
 category: '工具推荐'
+pin: 1
 ---
 
 我常用划词翻译插件阅读英文文档，但常见插件都没有词根拆解，于是我做了 puzzledict。

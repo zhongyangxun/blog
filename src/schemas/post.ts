@@ -19,6 +19,8 @@ export const postSchema = z.object({
   series: z.string().optional(),
   seriesIndex: z.number().optional(),
   draft: z.boolean().default(false),
+  // pin post and set the pin index number, 1 is the highest priority
+  pin: z.number().positive().optional(),
 });
 
 export type PostFrontmatter = z.infer<typeof postSchema>;
