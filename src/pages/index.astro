@@ -8,6 +8,6 @@ const allPosts = (await getCollection('posts')).sort(
 );
 ---
 
-<BaseLayout pageTitle="Home">
+<BaseLayout>
   <PostList posts={allPosts} />
 </BaseLayout>
