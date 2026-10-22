@@ -1,9 +1,10 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
-/* 字体 */
+/* 字体：正文用 Inter，站名用更有像素感且不那么圆润的 IBM Plex Sans */
 @import '@fontsource-variable/inter';
 @import '@fontsource-variable/noto-sans-sc';
+@import '@fontsource-variable/ibm-plex-sans/wght.css';
 
 @plugin "@tailwindcss/typography";
 
@@ -54,6 +55,8 @@
   /* 定义 font-family 变量 */
   /* 将英文 Inter 放在前面，这样英文和数字会优先使用 Inter */
   --font-sans: 'Inter Variable', 'Noto Sans SC Variable', system-ui, sans-serif;
+  --font-display:
+    'IBM Plex Sans Variable', 'Inter Variable', system-ui, sans-serif;
 }
 
 :root {

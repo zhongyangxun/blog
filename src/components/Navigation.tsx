@@ -14,10 +14,6 @@ type NavigationProps = {
 const Navigation = ({ pathname }: NavigationProps) => {
   const links = [
     {
-      href: BASE_URL,
-      label: 'Home',
-    },
-    {
       href: `${BASE_URL}about/`,
       label: 'About',
     },
@@ -28,7 +24,11 @@ const Navigation = ({ pathname }: NavigationProps) => {
       <NavigationMenuList className="flex gap-8">
         {links.map((link) => (
           <NavigationMenuItem key={link.href}>
-            <NavigationMenuLink asChild data-active={pathname === link.href}>
+            <NavigationMenuLink
+              asChild
+              data-active={pathname === link.href}
+              className="font-display font-normal"
+            >
               <a href={link.href}>{link.label}</a>
             </NavigationMenuLink>
           </NavigationMenuItem>
