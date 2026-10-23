@@ -23,7 +23,9 @@ const pathname = Astro.url.pathname;
       ? 'dark'
       : 'light';
   };
-  const isDark = getThemePreference() === 'dark';
+  const applyTheme = (theme) => {
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+  };
 
   if (typeof localStorage !== 'undefined') {
     const observer = new MutationObserver(() => {
@@ -36,7 +38,15 @@ const pathname = Astro.url.pathname;
     });
   }
 
-  document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+  applyTheme(getThemePreference());
+
+  // 从往返缓存恢复时这段脚本不会重跑，页面会停在离开时的主题
+  // 所以要监听 pageshow 事件来重新应用主题
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      applyTheme(getThemePreference());
+    }
+  });
 </script>
 
 <html lang="en">

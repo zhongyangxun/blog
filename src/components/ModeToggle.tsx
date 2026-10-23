@@ -1,28 +1,11 @@
 import { Button } from '@/components/ui/button';
 import { Sun, Moon } from 'lucide-react';
-import { useState, useEffect } from 'react';
 
-type Theme = 'light' | 'dark' | null;
-
+// 主题的读取、保存和往返缓存恢复都在 BaseLayout 的内联脚本里。
+// 这里只切换 class，图标样式跟着 .dark 走。
 const ModeToggle = () => {
-  const [theme, setTheme] = useState<Theme>(null);
-
-  useEffect(() => {
-    const isDark = document.documentElement.classList.contains('dark');
-    setTheme(isDark ? 'dark' : 'light');
-  }, []);
-
-  useEffect(() => {
-    const docClassList = document.documentElement.classList;
-    if (theme === 'dark' && !docClassList.contains('dark')) {
-      docClassList.add('dark');
-    } else if (theme === 'light' && docClassList.contains('dark')) {
-      docClassList.remove('dark');
-    }
-  }, [theme]);
-
   const handleClick = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    document.documentElement.classList.toggle('dark');
   };
 
   return (
