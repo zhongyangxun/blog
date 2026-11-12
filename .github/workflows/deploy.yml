@@ -17,14 +17,19 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_CF_BEACON_TOKEN: ${{ vars.PUBLIC_CF_BEACON_TOKEN }}
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v5
+      - name: Require Cloudflare analytics token
+        run: |
+          if [ -z "$PUBLIC_CF_BEACON_TOKEN" ]; then
+            echo "PUBLIC_CF_BEACON_TOKEN is not set"
+            exit 1
+          fi
       - name: Install, build, and upload your site
         uses: withastro/action@v5
-        env:
-          # Cloudflare web analytics token
-          PUBLIC_CF_BEACON_TOKEN: ${{ vars.PUBLIC_CF_BEACON_TOKEN }}
 
   deploy:
     needs: build
