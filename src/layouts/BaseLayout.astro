@@ -12,6 +12,7 @@ const siteTitle = "Joey's Blog";
 const fullTitle = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle;
 
 const pathname = Astro.url.pathname;
+const cfBeaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
 ---
 
 <script is:inline>
@@ -81,5 +82,13 @@ const pathname = Astro.url.pathname;
         <slot />
       </div>
     </main>
+    <!-- Cloudflare Web Analytics -->
+    {cfBeaconToken && (
+      <script
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon={JSON.stringify({ token: cfBeaconToken })}
+      />
+    )}
   </body>
 </html>
