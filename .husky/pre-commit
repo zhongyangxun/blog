@@ -1,0 +1,8 @@
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "gitleaks is not installed or not on PATH."
+  echo "Install it from https://github.com/gitleaks/gitleaks#installing"
+  exit 1
+fi
+
+gitleaks git --pre-commit --redact --staged --verbose
+npx lint-staged

@@ -1,0 +1,41 @@
+name: Commitlint
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          # Pin a supported major instead of lts/*: eslint-plugin-astro only
+          # allows ^22.22.3 || ^24.16.0 || >=26.3.0 (see package.json engines).
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate push commits with commitlint
+        if: github.event_name == 'push'
+        run: |
+          if [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
+            DEFAULT_BRANCH="${{ github.event.repository.default_branch }}"
+            if git rev-parse --verify "origin/${DEFAULT_BRANCH}" >/dev/null 2>&1; then
+              npx commitlint --from "origin/${DEFAULT_BRANCH}" --to "${{ github.sha }}" --verbose
+            else
+              npx commitlint --from "$(git rev-list --max-parents=0 HEAD)" --to "${{ github.sha }}" --verbose
+            fi
+          else
+            npx commitlint --from "${{ github.event.before }}" --to "${{ github.sha }}" --verbose
+          fi
+      - name: Validate PR commits with commitlint
+        if: github.event_name == 'pull_request'
+        run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
