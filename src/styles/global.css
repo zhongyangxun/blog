@@ -6,7 +6,7 @@
 @import '@fontsource-variable/noto-sans-sc';
 @import '@fontsource-variable/ibm-plex-sans/wght.css';
 
-@plugin "@tailwindcss/typography";
+@plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:is(.dark *));
 
