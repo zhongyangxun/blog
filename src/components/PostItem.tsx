@@ -6,24 +6,24 @@ type PostItemProps = Pick<Post, 'id'> &
 
 const PostItem = ({ id, title, pubDate, description, pin }: PostItemProps) => {
   return (
-    <div className="flex-col mb-4">
+    <div className="mb-4 flex-col">
       <div className="flex flex-col items-start gap-1">
         {pin && (
-          <span className="text-[0.625rem] leading-none px-1.5 py-0.5 rounded bg-muted text-muted-foreground font-mono tracking-wider">
+          <span className="bg-muted text-muted-foreground rounded px-1.5 py-0.5 font-mono text-[0.625rem] leading-none tracking-wider">
             Pinned
           </span>
         )}
         <a
           href={`${import.meta.env.BASE_URL}posts/${id}`}
-          className="font-semibold text-sm hover:underline line-clamp-2"
+          className="line-clamp-2 text-sm font-semibold hover:underline"
         >
           {title}
         </a>
       </div>
-      <p className="text-sm text-muted-foreground line-clamp-2">
+      <p className="text-muted-foreground line-clamp-2 text-sm">
         {description}
       </p>
-      <time className="text-sm text-muted-foreground">
+      <time className="text-muted-foreground text-sm">
         {formatDate(pubDate)}
       </time>
     </div>
